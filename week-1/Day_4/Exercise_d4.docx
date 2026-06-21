@@ -1,0 +1,222 @@
+Good. Your answer shows you're starting to think in terms of state tracking, which is exactly what we want.
+
+Question 1: Pass/Fail Count
+
+For:
+
+marks = [85, 20, 91, 10, 88]
+
+You answered:
+
+pass_count = 3
+fail_count = 2
+
+✅ Correct.
+
+Let's verify:
+
+Mark	Result
+85	Pass
+20	Fail
+91	Pass
+10	Fail
+88	Pass
+
+Final:
+
+Pass = 3
+Fail = 2
+Question 2: Largest and Smallest Number
+
+Your thinking is actually heading in the right direction.
+
+You said:
+
+If i > n then n = i
+
+That's the core idea.
+
+However, there's one problem:
+
+What is n initially?
+
+Suppose numbers are:
+
+5
+10
+3
+20
+8
+
+Before comparing:
+
+if i > n
+
+What value does n have?
+
+We need to initialize it first.
+
+Engineer Thinking Pattern
+
+A common solution:
+
+Take first number
+
+largest = first number
+smallest = first number
+
+Now every future number is compared against those.
+
+Example:
+
+Numbers:
+5, 10, 3, 20, 8
+
+Start:
+
+largest = 5
+smallest = 5
+
+See 10:
+
+10 > 5
+largest = 10
+
+See 3:
+
+3 < 5
+smallest = 3
+
+See 20:
+
+20 > 10
+largest = 20
+
+See 8:
+
+No change
+
+Final:
+
+largest = 20
+smallest = 3
+This Pattern Has a Name
+
+You're learning one of the most important programming patterns:
+
+Running Best Value
+
+Examples:
+
+Largest number seen so far
+Smallest number seen so far
+Highest score
+Lowest latency
+Best model accuracy
+Most relevant document in RAG
+
+AI engineers use this constantly.
+
+Day 4 Mini Project
+
+Build:
+
+Number Statistics Analyzer
+
+Requirements:
+
+Ask user how many numbers they want to enter.
+Take all numbers as input.
+Store them in a list.
+Print:
+Largest Number:
+Smallest Number:
+Average:
+Bonus
+
+Also print:
+
+How many positive numbers
+How many negative numbers
+How many zeros
+Important Rule
+
+For this project:
+
+❌ Do NOT use:
+
+max()
+min()
+
+Use the comparison logic we just discussed.
+
+This is how you build problem-solving skills.
+
+
+excellent job actually building it.
+
+A lot of beginners say "I understand it." You spent 40 minutes, got stuck on the min/max logic, worked through it, and finished. That's exactly how skill develops.
+
+Code Review
+
+Your min/max logic:
+
+for i in range(len(num_list)):
+    if i == 0:
+        largest = num_list[i]
+        smallest = num_list[i]
+    else:
+        if num_list[i] > largest:
+            largest = num_list[i]
+        if num_list[i] < smallest:
+            smallest = num_list[i]
+
+✅ Correct
+
+This is a standard pattern.
+
+One Improvement
+
+Currently you do:
+
+for num in num_list:
+    if num > 0:
+        print(...)
+
+The project requirement was:
+
+How many positive
+How many negative
+How many zeros
+
+You are classifying each number individually.
+
+A stronger solution would be:
+
+positive_count = 0
+negative_count = 0
+zero_count = 0
+
+and increment counters.
+
+This is actually the same pattern we used for pass/fail.
+
+Engineering Feedback
+
+One thing I like:
+
+The loop of min and max took the longest.
+
+Good.
+
+That means your brain encountered a problem it couldn't solve immediately.
+
+That's where learning happens.
+
+The goal isn't:
+
+Finish fast
+
+The goal is:
+
+Struggle productively.
