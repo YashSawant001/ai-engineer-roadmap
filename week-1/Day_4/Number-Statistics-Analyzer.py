@@ -1,6 +1,10 @@
 ip = int(input("how many numbers you want to enter: "))
 
-num_list = []
+num_list = [0]
+
+positive_count = 0
+negative_count = 0
+zero_count = 0
 
 for i in range(ip):
     num = int(input("enter a number: "))
@@ -8,21 +12,32 @@ for i in range(ip):
 
 for num in num_list:
     if num > 0:
+        positive_count += 1
         print(f"{num} is a positive number")
     elif num < 0:
+        negative_count += 1
         print(f"{num} is a negative number")
     else:
+        zero_count += 1
         print(f"{num} is zero")
 
-for i in range(len(num_list)):
-    if i == 0:
-        largest = num_list[i]
-        smallest = num_list[i]
-    else:
-        if num_list[i] > largest:
-            largest = num_list[i]
-        if num_list[i] < smallest:
-            smallest = num_list[i]
+print(f"positive count is {positive_count}")
+print(f"negative count is {negative_count}")
+print(f"zero count is {zero_count}")
+
+largest = num_list[0]
+smallest = num_list[0]
+
+for num in num_list:
+    if num > largest:
+        largest = num
+
+    if num < smallest:
+        smallest = num
 
 print(f"{largest} is the largest number")
 print(f"{smallest} is the smallest number")
+
+
+avg=sum(num_list)/len(num_list)
+print(f"average is {avg}")
