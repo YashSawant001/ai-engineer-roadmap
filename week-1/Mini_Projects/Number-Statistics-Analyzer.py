@@ -13,13 +13,10 @@ for i in range(ip):
 for num in num_list:
     if num > 0:
         positive_count += 1
-        print(f"{num} is a positive number")
     elif num < 0:
         negative_count += 1
-        print(f"{num} is a negative number")
     else:
         zero_count += 1
-        print(f"{num} is zero")
 
 print(f"positive count is {positive_count}")
 print(f"negative count is {negative_count}")
